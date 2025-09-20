@@ -1,0 +1,215 @@
+
+```
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', monospace;
+    background-color: #1a1a1a;
+    color: #fff;
+    overflow: hidden;
+}
+
+#gameContainer {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#gameCanvas {
+    border: 2px solid #444;
+    background-color: #3a2f1a;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    cursor: crosshair;
+}
+
+#ui {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+#health, #score {
+    position: absolute;
+    top: 20px;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 2px solid #0f0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#health {
+    left: 20px;
+    color: #f00;
+}
+
+#score {
+    right: 20px;
+    color: #0f0;
+}
+
+#gameOver, #startScreen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 40px;
+    border: 3px solid #f00;
+    border-radius: 10px;
+    pointer-events: auto;
+}
+
+#startScreen {
+    border-color: #0f0;
+    background: linear-gradient(135deg, rgba(0,0,0,0.95), rgba(20,20,20,0.95));
+    backdrop-filter: blur(10px);
+    animation: startScreenGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes startScreenGlow {
+    from {
+        box-shadow: 0 0 30px rgba(0,255,0,0.5);
+    }
+    to {
+        box-shadow: 0 0 50px rgba(0,255,0,0.8);
+    }
+}
+
+#startScreen h1 {
+    font-size: 64px;
+    margin-bottom: 30px;
+    background: linear-gradient(45deg, #ff0000, #00ff00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: titlePulse 1s ease-in-out infinite alternate;
+}
+
+@keyframes titlePulse {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.05);
+    }
+}
+
+#startScreen p {
+    font-size: 18px;
+    margin-bottom: 15px;
+    opacity: 0.9;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+#startScreen p:nth-child(2) { animation-delay: 0.2s; }
+#startScreen p:nth-child(3) { animation-delay: 0.4s; }
+#startScreen p:nth-child(4) { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 0.9;
+        transform: translateY(0);
+    }
+}
+
+#gameOver h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(255, 0, 0, 0.8);
+}
+
+#gameOver p {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#restartBtn, #startBtn {
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 24px;
+    background-color: #f00;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#startBtn {
+    background-color: #0f0;
+}
+
+#restartBtn:hover, #startBtn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+}
+
+#startBtn:hover {
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
+}
+
+.hidden {
+    display: none !important;
+}
+
+#mobileControls {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    pointer-events: auto;
+}
+
+#joystickContainer {
+    width: 150px;
+    height: 150px;
+}
+
+@media (max-width: 768px) {
+    #health, #score {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+}
+
+#ammo {
+    position: absolute;
+    top: 70px;
+    left: 20px;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 2px solid #ffff00;
+    font-size: 18px;
+    color: #ffff00;
+    font-weight: bold;
+}
+
+#highScore {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 2px solid #ffd700;
+    font-size: 18px;
+    color: #ffd700;
+    font-weight: bold;
+}
