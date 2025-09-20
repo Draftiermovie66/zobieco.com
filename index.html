@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zombie Escape</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="gameContainer">
+        <canvas id="gameCanvas"></canvas>
+        <div id="ui">
+            <div id="health">Health: <span id="healthValue">100</span></div>
+            <div id="ammo">Ammo: <span id="ammoValue">30/30</span></div>
+            <div id="score">Score: <span id="scoreValue">0</span></div>
+            <div id="highScore">High Score: <span id="highScoreValue">0</span></div>
+            <div id="gameOver" class="hidden">
+                <h2>Game Over!</h2>
+                <p>Final Score: <span id="finalScore">0</span></p>
+                <p>Wave Reached: <span id="finalWave">1</span></p>
+                <button id="restartBtn">Play Again</button>
+            </div>
+            <div id="startScreen">
+                <h1>ZOMBIE ESCAPE</h1>
+                <div class="start-content">
+                    <p>🧟 Survive the zombie apocalypse!</p>
+                    <p>🎯 Use WASD or Arrow Keys to move</p>
+                    <p>🔫 Click or tap to shoot zombies</p>
+                    <p>📦 Collect power-ups for bonuses</p>
+                    <p>🔄 Press R to reload when out of ammo</p>
+                    <p>🏆 Beat your high score!</p>
+                </div>
+                <button id="startBtn">Start Game</button>
+            </div>
+            <div id="mobileControls">
+                <div id="joystickContainer"></div>
+                <div id="shootBtn">🔫 SHOOT</div>
+            </div>
+        </div>
+    </div>
+
+    <script type="importmap">
+    {
+        "imports": {
+            "nipplejs": "https://esm.sh/nipplejs"
+        }
+    }
+    </script>
+    <script type="module" src="game.js"></script>
+</body>
+</html>
